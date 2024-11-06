@@ -16,6 +16,30 @@ public class playersGuide13 {
 
         Scanner userValue = new Scanner(System.in);
 
+        System.out.println("please give a x value ");
+        int xValue = userValue.nextInt();
+
+        System.out.println("please give a y value ");
+        int yValue = userValue.nextInt();
+
+        System.out.println(" enemy coordinates (" + xValue + ","+ yValue + ")");
+
+
+        if(xValue == 0; yValue == 0){
+            System.out.println("The enemy is here!");
+        else(xValue > 0; yValue == 0 ){
+                System.out.println("from the east");
+            }
+            if -else(xValue < 0; yValue == 0){
+                System.out.println("from the west");
+            }
+            if -else(xValue == 0; yValue > 0){
+                System.out.println("from the north");
+            }
+            if -else(xValue == 0; yValue < 0){
+                System.out.println("from the South");
+            }
+        }
 
     }
 }
