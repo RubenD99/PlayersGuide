@@ -21,7 +21,14 @@ public class playersGuide12 {
 
         System.out.println(" the chosen number is: " + clockNumber);
 
+        int tickTock = clockNumber%2;
 
+        if (tickTock > 0){
+            System.out.println("Tock");
+        } else{
+            System.out.println("Tick");
+
+        }
 
     }
 }
