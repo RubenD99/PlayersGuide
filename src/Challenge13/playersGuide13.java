@@ -24,22 +24,25 @@ public class playersGuide13 {
 
         System.out.println(" enemy coordinates (" + xValue + ","+ yValue + ")");
 
+        String xString;
+        String yString;
 
-        if(xValue == 0; yValue == 0){
-            System.out.println("The enemy is here!");
-        else(xValue > 0; yValue == 0 ){
-                System.out.println("from the east");
-            }
-            if -else(xValue < 0; yValue == 0){
-                System.out.println("from the west");
-            }
-            if -else(xValue == 0; yValue > 0){
-                System.out.println("from the north");
-            }
-            if -else(xValue == 0; yValue < 0){
-                System.out.println("from the South");
-            }
+        if (xValue > 0 ){
+            xString = "east";
+        } else if (xValue < 0) {
+            xString = "west";
+        } else {
+            xString = "here";
         }
 
+        if (yValue > 0){
+            yString = "north";
+        } else if (yValue <0 ){
+            yString = "south";
+        } else {
+            yString = "here!";
+        }
+
+        System.out.println("the enemy is " + xString + yString);
     }
 }
