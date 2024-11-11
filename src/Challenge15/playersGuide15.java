@@ -22,7 +22,7 @@ public class playersGuide15 {
         float multiplier = 1;
 
 
-        if(userName.equalsIgnoreCase ("Ruben")){
+        if(userName.equalsIgnoreCase ("Ruben")){        // vraagt of naam gelijk is en ignort de case van de letters.
             multiplier = 0.5f;
 
         }
