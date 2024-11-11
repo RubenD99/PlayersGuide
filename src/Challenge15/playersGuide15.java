@@ -18,32 +18,46 @@ public class playersGuide15 {
         System.out.println("What is your name? ");
         String userName = input.nextLine();
 
+        float value;
+        float multiplier = 1;
 
+
+        if(userName.equalsIgnoreCase ("Ruben")){
+            multiplier = 0.5f;
+
+        }
 
         System.out.println("What item do you want?");
         int choice = input.nextInt();
 
         switch (choice){
             case 1:
-                System.out.println("Rope: 10 Gold");
+                value = 10 * multiplier;
+                System.out.println("Rope:" + value + "Gold");
                 break;
             case 2:
-                System.out.println("Torches: 15 Gold");
+                value = 15 * multiplier;
+                System.out.println("Torches: " + value + " Gold");
                 break;
             case 3:
-                System.out.println("Climbing Equipment: 25 Gold");
+                value = 25 * multiplier;
+                System.out.println("Climbing Equipment:"+ value + " Gold");
                 break;
             case 4:
-                System.out.println("Clean water: 1 Gold");
+                value = 1 * multiplier;
+                System.out.println("Clean water: "+ value +"  Gold");
                 break;
             case 5:
-                System.out.println("Machete: 20 Gold");
+                value = 20 * multiplier;
+                System.out.println("Machete: "+ value +"  Gold");
                 break;
             case 6:
-                System.out.println("Canoe 200 Gold");
+                value = 200 * multiplier;
+                System.out.println("Canoe "+ value +" Gold");
                 break;
             case 7:
-                System.out.println("Food Supplies: 1 Gold");
+                value = 1 * multiplier;
+                System.out.println("Food Supplies: " + value + "Gold");
                 break;
             default:
                 System.out.println("we don't have that");
