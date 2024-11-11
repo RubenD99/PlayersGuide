@@ -32,7 +32,7 @@ public class playersGuide13 {
         } else if (xValue < 0) {
             xString = "west";
         } else {
-            xString = "here";
+            xString = "re!";
         }
 
         if (yValue > 0){
@@ -40,9 +40,9 @@ public class playersGuide13 {
         } else if (yValue <0 ){
             yString = "south";
         } else {
-            yString = "here!";
+            yString = "he";
         }
 
-        System.out.println("the enemy is " + xString + yString);
+        System.out.println("the enemy is " + yString + xString);
     }
 }
