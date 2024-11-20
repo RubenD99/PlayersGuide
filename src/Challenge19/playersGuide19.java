@@ -24,4 +24,7 @@ Modify the code to use foreach loops instead of for loops
 package Challenge19;
 
 public class playersGuide19 {
+    public static void main(String[] args) {
+
+    }
 }
