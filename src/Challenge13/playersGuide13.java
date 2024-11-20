@@ -2,8 +2,14 @@
 
 Ask the user for an x value and a y value. These are coordinates of
 the enemy relative to the watchtower’s location. Positive x-values are east, positive y-values are north (as they would be on a normal graph)
-Using if statements and relational operators, display a message about what direction the enemy is coming from. For example, “The enemy is to the northwest!” or “The enemy is here!
+Using if statements and relational operators, display a message about what direction the enemy is coming from. For example, “The enemy is to the northwest!”
+or “The enemy is here!
 
+
+positive X = East
+Negative X = West
+Positive Y = North
+Negative Y = South
  */
 
 package Challenge13;
@@ -24,25 +30,29 @@ public class playersGuide13 {
 
         System.out.println(" enemy coordinates (" + xValue + ","+ yValue + ")");
 
-        String xString;
-        String yString;
+        String direction;
 
-        if (xValue > 0 ){
-            xString = "east";
-        } else if (xValue < 0) {
-            xString = "west";
-        } else {
-            xString = "re!";
+        if (xValue > 0 && yValue > 0){
+            direction = "NorthEast";
+        } else if (xValue < 0 && yValue <0) {
+            direction = "SouthWest";
+        } else if(xValue >0 && yValue <0){
+            direction = "SouthEast";
+        }else if(xValue <0 && yValue >0){
+            direction = "NorthWest";
+        }else if(xValue >0 && yValue == 0){
+            direction = "East ";
+        }else if(xValue <0 && yValue == 0){
+            direction = "West";
+        }else if(xValue == 0 && yValue >0){
+            direction = "North";
+        }else if(xValue == 0 && yValue <0){
+            direction = "South";
+        }else{
+            System.out.println("The enemy is here!");
+            return;
         }
 
-        if (yValue > 0){
-            yString = "north";
-        } else if (yValue <0 ){
-            yString = "south";
-        } else {
-            yString = "he";
-        }
-
-        System.out.println("the enemy is " + yString + xString);
+        System.out.println(" they are to the " + direction);
     }
 }
