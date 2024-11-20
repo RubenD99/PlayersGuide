@@ -18,10 +18,10 @@ public class playersGuide18 {
 
         Scanner input = new Scanner(System.in);
 
-        int i = 8;
+        int i = 5;
         int b;
         int[] replicator = new int[i];     // begin array 1
-        int a = 1;
+        int a = 5;
 
         for ( b = 0; b < replicator.length; b++){
 
@@ -32,7 +32,19 @@ public class playersGuide18 {
 
         }
 
+        System.out.println("\nnext array");
 
+        int SecondLength = 5;
+        int[] array2 = new int[SecondLength];
+        int c;
+
+        for( c = 0; c < array2.length; c++){
+
+            array2[c] = replicator[c];
+
+            System.out.print(array2[c]);
+
+        }
 
     }
 }
