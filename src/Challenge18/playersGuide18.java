@@ -23,13 +23,20 @@ public class playersGuide18 {
         int[] replicator = new int[i];     // begin array 1
         int a = 5;
 
-        for ( b = 0; b < replicator.length; b++){
+        System.out.println("Maak eerste Array, geef 5 numers :");
 
-            replicator[b] = a;
+        for ( b = 0; b < replicator.length; b++){           // maak eerste array met scanner
 
-            System.out.print(replicator[b]);
-            a++;
+            System.out.println("give single number");
+            int number = input.nextInt();
 
+            replicator[b] = number;
+
+        }
+
+        System.out.println("eerste array:");
+        for (int f : replicator){           // print eerste volledige array met for each loop
+            System.out.print(f);
         }
 
         System.out.println("\nnext array");
@@ -38,7 +45,7 @@ public class playersGuide18 {
         int[] array2 = new int[SecondLength];
         int c;
 
-        for( c = 0; c < array2.length; c++){
+        for( c = 0; c < array2.length; c++){        // copy de waardes van de eerste array over naar de tweede array
 
             array2[c] = replicator[c];
 
