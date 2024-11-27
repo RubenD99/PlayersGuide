@@ -26,5 +26,23 @@ package Challenge19;
 public class playersGuide19 {
     public static void main(String[] args) {
 
+        int[] array = { 4, 51, -7, 13, -99, 15, -8, 45, 90 };
+        int currentSmallest = Integer.MAX_VALUE; // Start higher than anything in the array.
+
+
+        for (int index: array){
+            if (array[index] < currentSmallest)
+                currentSmallest = array[index];
+
+        }
+        System.out.println(currentSmallest);
+
+        int total = 0;
+        for (int index: array) {
+            total += array[index];
+            double average = (double) total / array.length;
+            System.out.println(average);
+
+        }
     }
 }
