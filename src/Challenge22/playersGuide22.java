@@ -28,4 +28,7 @@ to randomly place the Manticore so that it can be a single-player game.
 package Challenge22;
 
 public class playersGuide22 {
+    public static void main(String[] args) {
+
+    }
 }
