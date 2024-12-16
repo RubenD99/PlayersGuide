@@ -27,53 +27,55 @@ to randomly place the Manticore so that it can be a single-player game.
 
 package Challenge22;
 
-
 import java.util.Scanner;
 
 public class playersGuide22 {
-    int shots = 0;
+
     int mantHealth = 10;
     int cityHealth = 15;
-
+    int distance;
 
 
     public static void main(String[] args) {
 
         playersGuide22 varis = new playersGuide22();
-        Scanner input = new Scanner(System.in);
 
-        System.out.println(distanceFromCity());
+
+        varis.distanceFromCity();
+
         spaces();
 
-        for (int ronden = 0; varis.mantHealth >= 0; ronden++ ) {
+        for (int ronden = 0; varis.mantHealth > 0 && varis.cityHealth > 0; ronden++ ) {
+
+
             System.out.print("Ronden : " + ronden + "\n");
             System.out.print("City Health : " + varis.cityHealth );
             System.out.print(" Manticore Health : " + varis.mantHealth + "\n");
 
+            varis.vraagAfstand();
 
-            //System.out.println(cannon(varis.shots));
+
+            //System.out.println(cannon(ronden));
 
 
-            //varis.shots++;
 
-            varis.mantHealth--;
         }
     }
 
 
-    static int distanceFromCity (){
-                                                                    // methode voor het vragen van de afstand van het schip
+    int distanceFromCity (){
+                                                       // methode voor het vragen van de afstand van het schip
         Scanner input = new Scanner(System.in);
 
-        System.out.println(" wat is de afstand van het schip? (geef nummer tussen 0 - 100");
-        int distance = input.nextInt();
-        do {
+        System.out.println("Player 1 wat is de afstand van het schip? (geef nummer tussen 0 - 100");
+        distance = input.nextInt();
+
+        while (distance < 0 || distance > 100){
 
             System.out.println("gekozen afstand is niet correct. \n kies een nieuwe afstand tussen 0 - 100");
             distance = input.nextInt();
 
-
-        }while (distance < 0 || distance > 100);
+        }
 
         return distance;
     }
@@ -86,31 +88,45 @@ public class playersGuide22 {
         }
     }
 
-    static int vraagAfstand (int afstand){
+    int vraagAfstand (){
 
-        return afstand;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("distance: " + distance);
+
+        System.out.println ("Enter gewenste canon range : ");
+        int afstand = input.nextInt();
+
+        if( afstand == distance){
+            System.out.println("RAAK");
+            return mantHealth--;
+        }else{
+            System.out.println("MISS");
+            return 0;
+        }
+
     }
 
 
 
-    static String cannon (int schoten){
+    int cannon (int ronden){
                                                     // shots and damage
 
-        int rate3 = schoten % 3;
-        int rate5 = schoten % 5;
+        int rate3 = ronden % 3;
+        int rate5 = ronden % 5;
 
         if (rate3 == 0 && rate5 == 0){
-            return "10 damage";
+            return 10;
         }else {
 
 
             if (rate3 == 0) {
-            return "3 damage";
+            return 3;
             } else if (rate5 == 0) {
-            return "3 damage";
+            return 3;
             }
         }
-        return "1 damage";
+        return 1;
     }
 
 
