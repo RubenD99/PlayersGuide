@@ -34,6 +34,7 @@ public class playersGuide22 {
     int mantHealth = 10;
     int cityHealth = 15;
     int distance;
+    int rounds;
 
 
     public static void main(String[] args) {
@@ -45,8 +46,8 @@ public class playersGuide22 {
 
         spaces();
 
-        for (int ronden = 0; varis.mantHealth > 0 && varis.cityHealth > 0; ronden++ ) {
-
+        for (int ronden = 1; varis.mantHealth > 0 && varis.cityHealth > 0; ronden++ ) {
+            varis.rounds = ronden;
 
             System.out.print("Ronden : " + ronden + "\n");
             System.out.print("City Health : " + varis.cityHealth );
@@ -54,11 +55,17 @@ public class playersGuide22 {
 
             varis.vraagAfstand();
 
+           if(varis.mantHealth > 0){
+                varis.cityHealth--;
+           }
 
-            //System.out.println(cannon(ronden));
+           if(varis.mantHealth <= 0){
+                System.out.println("the manticore has been destroyed!\nyou saved the city of Consolas");
+           }
 
-
-
+           if(varis.cityHealth == 0){
+                System.out.println("Game over. The city has been destroyed");
+           }
         }
     }
 
@@ -74,9 +81,7 @@ public class playersGuide22 {
 
             System.out.println("gekozen afstand is niet correct. \n kies een nieuwe afstand tussen 0 - 100");
             distance = input.nextInt();
-
         }
-
         return distance;
     }
 
@@ -84,24 +89,49 @@ public class playersGuide22 {
     static void spaces (){
         for (int i = 0; i <= 50; i++){          // methode voor het legen van de scherm
             System.out.println(" ");
-
         }
     }
 
-    int vraagAfstand (){
 
+    int vraagAfstand (){
+                                                    // vraag naar afstand en damage calculatie
         Scanner input = new Scanner(System.in);
 
-        System.out.println("distance: " + distance);
-
-        System.out.println ("Enter gewenste canon range : ");
+        System.out.println ("Player 2 Enter canon range : ");
         int afstand = input.nextInt();
 
-        if( afstand == distance){
-            System.out.println("RAAK");
-            return mantHealth--;
-        }else{
-            System.out.println("MISS");
+
+        if( afstand == distance){           // als Raak
+            System.out.println("Hit");
+
+            int rate3 = rounds % 3;
+            int rate5 = rounds % 5;
+
+            if (rate3 == 0 && rate5 == 0){
+                System.out.println("10 damage");
+                return mantHealth = mantHealth - 10;
+
+            }else {
+
+                if (rate3 == 0) {
+                    System.out.println("3 damage");
+                    return mantHealth = mantHealth - 3;
+
+                } else if (rate5 == 0) {
+                    System.out.println("3 damage");
+                    return mantHealth = mantHealth- 3;
+                }
+            }
+            System.out.println("1 damage");
+            return mantHealth = mantHealth - 1;
+
+        }else{                              // als Mis
+
+            if(afstand > distance){
+                System.out.println("you overshot the target");
+            }else{
+                System.out.println("you fell short of the target");
+            }
             return 0;
         }
 
@@ -109,26 +139,30 @@ public class playersGuide22 {
 
 
 
-    int cannon (int ronden){
+   /* int cannon (int ronden){
                                                     // shots and damage
 
         int rate3 = ronden % 3;
         int rate5 = ronden % 5;
 
         if (rate3 == 0 && rate5 == 0){
+            System.out.println("10");
             return 10;
         }else {
 
 
             if (rate3 == 0) {
+                System.out.println("3");
             return 3;
             } else if (rate5 == 0) {
+                System.out.println("3");
             return 3;
             }
         }
+        System.out.println("1");
         return 1;
     }
-
+        */
 
 }
 
