@@ -109,8 +109,8 @@ public class playersGuide22 {
 
             if (rate3 == 0 && rate5 == 0){
                 System.out.println("10 damage");
-                return mantHealth = mantHealth - 10;
-
+                mantHealth = mantHealth - 10;
+                return mantHealth;
             }else {
 
                 if (rate3 == 0) {

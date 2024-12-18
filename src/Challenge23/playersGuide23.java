@@ -22,13 +22,61 @@ commands, but ensure that you don’t transition between states that don’t sup
 Loop forever, asking for the next command.
 */
 
-
 package Challenge23;
+
+import java.util.Scanner;
 
 public class playersGuide23 {
 
+
+    enum BoxState{
+        OPEN,
+        CLOSED,
+        LOCKED,
+    }
+
     public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        playersGuide23 refObj = new playersGuide23();
+
+        BoxState variable = BoxState.LOCKED;
+
+        System.out.println("open, closed or locked? : ");
+        String modBox = input.nextLine();
+
+        switch(modBox.toUpperCase()){
+            case "OPEN":
+                variable = BoxState.OPEN;
+                break;
+            case "CLOSED":
+                variable = BoxState.CLOSED;
+                break;
+            case "LOCKED":
+                variable = BoxState.LOCKED;
+                break;
+        }
+
+        refObj.Switchbox(variable);
 
     }
+
+
+    void Switchbox (BoxState variable){
+
+        switch(variable){
+            case OPEN:
+                System.out.println("Box is Open");
+                break;
+            case CLOSED:
+                System.out.println("Box is closed");
+                break;
+            case LOCKED:
+                System.out.println("Box is locked");
+                break;
+        }
+
+    }
+
+
 
 }
