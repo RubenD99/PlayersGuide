@@ -29,49 +29,63 @@ import java.util.Scanner;
 public class playersGuide23 {
 
 
-    enum BoxState{
+    enum BoxState {
+        START,
         OPEN,
         CLOSED,
         LOCKED,
+        END,
     }
+
 
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
         playersGuide23 refObj = new playersGuide23();
 
-        BoxState variable = BoxState.LOCKED;
+        BoxState variable = BoxState.START;
 
-        System.out.println("open, closed or locked? : ");
-        String modBox = input.nextLine();
+        System.out.println(variable);
 
-        switch(modBox.toUpperCase()){
-            case "OPEN":
-                variable = BoxState.OPEN;
-                break;
-            case "CLOSED":
-                variable = BoxState.CLOSED;
-                break;
-            case "LOCKED":
-                variable = BoxState.LOCKED;
-                break;
-        }
+        do {
+            System.out.println("open, closed or locked? : ");
+            String modBox = input.nextLine();
 
-        refObj.Switchbox(variable);
+            switch (modBox.toUpperCase()) {
+                case "OPEN":
+                    variable = BoxState.OPEN;
+                    break;
+                case "CLOSED":
+                    variable = BoxState.CLOSED;
+                    break;
+                case "LOCKED":
+                    variable = BoxState.LOCKED;
+                    break;
+                case "END":
+                    System.out.println("Ending program");
+                    variable = BoxState.END;
+                    break;
+                default :
+                    System.out.println("Input not recognised, please try again");
+                    break;
+            }
+
+            refObj.Switchbox(variable);
+
+        }while (variable != BoxState.END);
 
     }
 
 
     void Switchbox (BoxState variable){
-
         switch(variable){
             case OPEN:
-                System.out.println("Box is Open");
+                System.out.println("Box is now Open");
                 break;
             case CLOSED:
-                System.out.println("Box is closed");
+                System.out.println("Box is now closed");
                 break;
             case LOCKED:
-                System.out.println("Box is locked");
+                System.out.println("Box is now locked");
                 break;
         }
 
